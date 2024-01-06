@@ -23,6 +23,11 @@
       version: "{{ flaskex_branch }}"
       dest: /var/www/Flaskex/
 
+  - name: Update pip
+    pip:
+      name: pip
+      executable: pip3
+
   - name: Install requirements
     pip:
       requirements: /var/www/Flaskex/requirements.txt
