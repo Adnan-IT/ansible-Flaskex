@@ -19,6 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install Python Packages
+        run: |
+          . /opt/pipx/venvs/ansible-core/bin/activate
+          /opt/pipx/venvs/ansible-core/bin/python -m pip install boto3 botocore
+
       - name: Import SSH Key
         run: echo "${{ secrets.ANSIBLE_SSH_KEY }}" > ansible_key
 
